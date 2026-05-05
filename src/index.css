@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    background-color: #0A0C14;
+    color: #E8ECF0;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2A2F45 #0A0C14;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #0A0C14;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #2A2F45;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* FOIL shimmer effect */
+  .foil-card {
+    background: linear-gradient(
+      135deg,
+      #f6c700 0%,
+      #fff5a0 20%,
+      #f6c700 40%,
+      #c9a000 60%,
+      #f6c700 80%,
+      #fff5a0 100%
+    );
+    background-size: 300% 300%;
+    animation: shimmer 3s ease infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Status colors for sticker cards */
+  .sticker-tengo {
+    @apply border-status-tengo bg-status-tengo/10 hover:bg-status-tengo/20;
+  }
+
+  .sticker-sobra {
+    @apply border-status-sobra bg-status-sobra/10 hover:bg-status-sobra/20;
+  }
+
+  .sticker-intercambio {
+    @apply border-status-intercambio bg-status-intercambio/10 hover:bg-status-intercambio/20;
+  }
+
+  .sticker-busco {
+    @apply border-status-busco bg-status-busco/10 hover:bg-status-busco/20;
+  }
+
+  .sticker-none {
+    @apply border-brand-border bg-brand-surface hover:bg-brand-surface2;
+  }
+
+  /* Group badge colors */
+  .group-badge {
+    @apply px-2 py-0.5 rounded text-xs font-bold font-display tracking-wider;
+  }
+
+  .btn-primary {
+    @apply bg-brand-gold hover:bg-brand-goldDark text-black font-bold py-2.5 px-6 rounded-lg transition-all duration-200 font-body;
+  }
+
+  .btn-secondary {
+    @apply bg-brand-surface2 hover:bg-brand-border text-brand-text font-semibold py-2.5 px-6 rounded-lg transition-all duration-200 border border-brand-border;
+  }
+
+  .input-field {
+    @apply w-full bg-brand-surface2 border border-brand-border rounded-lg px-4 py-2.5 text-brand-text placeholder-brand-muted focus:outline-none focus:border-brand-gold transition-colors;
+  }
+}
